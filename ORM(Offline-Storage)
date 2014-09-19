@@ -1,4 +1,4 @@
-/* 
+	/* 
 	*	This JavaScript API class allows you to interact with the local RHOM database and programmatically add models or get references to models.
 	*	We have put the CRUD-(CREATE, READ, UPDATE, DELETE) methods sequentially for you.
 	*	Make changes based on the commented sections below.
@@ -12,16 +12,16 @@
 	function createRhoModel(){	
 		modelContainer = Rho.ORM.addModel(function(model) {
 			model.modelName("Material"); 	                         //--Model Name
-			model.property("Barcode", "string");					         //--Model Properties (Property name and return type)		
+			model.property("Barcode", "string");			 //--Model Properties (Property name and return type)		
 			model.property("Quantity", "integer"); 					  
-			model.set("partition", "app");                        //--Partition types are("user", "local", or "app")
+			model.set("partition", "app");                           //--Partition types are("user", "local", or "app")
 		});
 	}; 
 
 	//Adding records from a STRUCTURE, TABLE / COLLECTION (source).
 	function addRecords(source){		
 		if(source){
-				var newRecord = modelContainer.create({             //--Add model record / object and save it to the database
+				var newRecord = modelContainer.create({          //--Add model record / object and save it to the database
 					barcode	: source.BARCODE ,
 					quantity: source.QUANTITY
 				}); 
